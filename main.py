@@ -10,5 +10,5 @@ def tasser_ligne(ligne):
     zero = [0] * (4 - len(non_zero))
     return non_zero + zeros
 
-def ajout_chiffre(grille):
-    pass
+
+def ajout_chiffre(grille)
