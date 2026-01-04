@@ -2,7 +2,7 @@ import random
 
 TAILLE = 4
 def init_grille():
-    return [[0]*Taille for _ in range(TAILLE)]
+    return [[0]*TAILLE for _ in range(TAILLE)]
     
 def tasser_ligne(ligne):
     non_zeros=[x for x in ligne if x !=0]
