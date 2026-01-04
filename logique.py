@@ -48,3 +48,32 @@ def deplacement_droite(grille):
         nouvelle.append(nl)
         score_total += sc
     return nouvelle, score_total, change
+
+def deplacement_haut(grille):
+    nouvelle = [[0]*TAILLE for _ in range(TAILLE)]
+    score_total = 0
+    change = False
+    for j in range(TAILLE):
+        col = [grille[i][j] for i in range(TAILLE)]
+        nc, sc = fusion_ligne(col)
+        score_total += sc
+        for i in range(TAILLE):
+            nouvelle[i][j] = nc[i]
+            if nouvelle[i][j] != grille[i][j]:
+                change = True
+    return nouvelle, score_total, change
+
+def deplacement_bas(grille):
+    nouvelle = [[0]*TAILLE for _ in range(TAILLE)]
+    score_total = 0
+    change = False
+    for j in range(TAILLE):
+        col = [grille[i][j] for i in range(TAILLE)][::-1]
+        nc, sc = fusion_ligne(col)
+        nc = nc[::-1]
+        score_total += sc
+        for i in range(TAILLE):
+            nouvelle[i][j] = nc[i]
+            if nouvelle[i][j] != grille[i][j]:
+                change = True
+    return nouvelle, score_total, change
