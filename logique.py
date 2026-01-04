@@ -20,3 +20,31 @@ def fusion_ligne(ligne):
             i+=2
         else:
             i+=1
+    ligne=tasser_ligne(ligne)
+    return ligne, score
+
+def deplacement_gauche(grille):
+    nouvelle=[]
+    score_total=0
+    change=False
+    for ligne in grille:
+        nl, sc=fusion_ligne(ligne[:])
+        if nl != ligne:
+            change=True
+        nouvelle.append(nl)
+        score_total+=sc
+    return nouvelle, score_total, change
+
+def deplacement_droite(grille):
+    nouvelle=[]
+    score_total=0
+    change=False
+    for ligne in grille:
+        inv=list(reversed(ligne))
+        nl, sc=fusion_ligne(inv)
+        nl=list(reversed(nl))
+        if nl != ligne:
+            change=True
+        nouvelle.append(nl)
+        score_total += sc
+    return nouvelle, score_total, change
