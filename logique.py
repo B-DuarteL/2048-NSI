@@ -78,6 +78,14 @@ def deplacement_bas(grille):
                 change = True
     return nouvelle, score_total, change
 
+def ajout_chiffre(grille):
+    vides = [(i, j) for i in range(TAILLE) for j in range(TAILLE) if grille[i][j] == 0]
+    if not vides:
+        return grille
+    i, j = random.choice(vides)
+    grille[i][j] = 4 if random.random() < 0.10 else 2
+    return grille
+
 def victoire(grille):
     return any(2048 in ligne for ligne in grille)
 
