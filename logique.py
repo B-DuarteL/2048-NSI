@@ -6,7 +6,7 @@ def init_grille():
     
 def tasser_ligne(ligne):
     non_zeros=[x for x in ligne if x !=0]
-    return non_zeros + [0] * (TAILLE) - len(non_zeros)
+    return non_zeros + [0] * (TAILLE - len(non_zeros))
 
 def fusion_ligne(ligne):
     score=0
