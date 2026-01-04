@@ -77,3 +77,17 @@ def deplacement_bas(grille):
             if nouvelle[i][j] != grille[i][j]:
                 change = True
     return nouvelle, score_total, change
+
+def victoire(grille):
+    return any(2048 in ligne for ligne in grille)
+
+def game_over(grille):
+    for i in range(TAILLE):
+        for j in range(TAILLE):
+            if grille[i][j] == 0:
+                return False
+            if j < TAILLE-1 and grille[i][j] == grille[i][j+1]:
+                return False
+            if i < TAILLE-1 and grille[i][j] == grille[i+1][j]:
+                return False
+    return True
