@@ -13,6 +13,33 @@
   <h2>Régle du jeu</h2>
   <ul>
     <li>Le jeu se joue sur une grille 4 x 4 cases.</li>
-    <lil>Le joueur utilise les fléches du clavier pour déplacer les tuiles.</lil>
+    <li>Le joueur utilise les fléches du clavier pour déplacer les tuiles.</li>
+    <li>Deux tuiles de même valeur fusionnent lorsqu'elles se rencontrent.</li>
+    <li>Aprés chaque mouvement valide, une nouvelle tuile apparaît.</li>
+    <li>Le joueur gagne lorsqu'il atteint la tuile 2048.</li>
+    <li>La partie est perdu lorsque plus aucun mouvement n'est possible.</li>   
   </ul>
+  <h2>Fonctionnement algorithme</h2>
+  <p>
+    Le plateau de jeu est représenté par une grille 4x4 en Python.
+    Chaque case contient soit 0 (case vide) ou une puissance de 2
+  </p>
+  <p>
+    Lorsqu'un mouvement est effectué, le programme marche en trois étapes :
+  </p>
+  <ol>
+    <li>Tassement : Les tuiles se déplace vers la direction choisie.</li>
+    <li>La fusion : Deux tuiles identique fusionnent en une seule.</li>
+    <li>Nouvelle modification pour supprimer les cases vides créés.</li>
+  </ol>
+  <p>
+    Les mouvement vers le haut, le bas, la gauche et la doite ont obtenus
+    grâce à la transformation de la grille(inversion et transportation)
+  </p>
+  <h2>Présentation du programme</h2>
+  <p>
+    le jeu à été programmé en Python en utilisant les bibliothéque Tkinter
+     pour l'interface graphique et Random pour génerer des nombres aléatoires.
+  </p>
 </body>
+
