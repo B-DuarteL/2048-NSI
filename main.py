@@ -1,11 +1,11 @@
-import tkinter as tk
+import tkinter as tk #création interface graphique
 from logique import (
     init_grille, ajout_chiffre,
     deplacement_gauche, deplacement_droite,
     deplacement_haut, deplacement_bas,
     victoire, game_over
 )
-
+#Toutes les couleurs
 COULEURS = {
     0: "#cdc1b4",
     2: "#eee4da",
@@ -33,7 +33,7 @@ fenetre.resizable(False, False)
 label_score = tk.Label(fenetre, text="Score : 0", font=("Arial", 16))
 label_score.pack(pady=10)
 
-frame_grille = tk.Frame(fenetre, bg="#bbada0", padx=10, pady=10)
+frame_grille = tk.Frame(fenetre, bg="#bbada0", padx=10, pady=10)# taille du jeu
 frame_grille.pack()
 
 labels = [[None]*4 for _ in range(4)]
@@ -72,16 +72,16 @@ def nouvelle_partie():
     label_message.config(text="")
     maj_affichage()
 
-def gestion_touche(event):
+def gestion_touche(event):# atribution touche et role
     global grille, score
 
-    if event.keysym == "Left":
+    if event.keysym == "Left":# deplacement fléche vers la gauche
         new, gain, change = deplacement_gauche(grille)
-    elif event.keysym == "Right":
+    elif event.keysym == "Right":# deplacement fléche vers la doite
         new, gain, change = deplacement_droite(grille)
-    elif event.keysym == "Up":
+    elif event.keysym == "Up":# deplacement fléche vers le haut
         new, gain, change = deplacement_haut(grille)
-    elif event.keysym == "Down":
+    elif event.keysym == "Down":# deplacement fléche vers le bas
         new, gain, change = deplacement_bas(grille)
     else:
         return
@@ -92,12 +92,12 @@ def gestion_touche(event):
         ajout_chiffre(grille)
         maj_affichage()
 
-        if victoire(grille):
+        if victoire(grille):# affiche de la victoire
             label_message.config(text="Victoire !")
-        elif game_over(grille):
+        elif game_over(grille):# affichage de la defaite
             label_message.config(text="Game Over")
 
-btn_reset = tk.Button(fenetre, text="Nouvelle partie", command=nouvelle_partie)
+btn_reset = tk.Button(fenetre, text="Nouvelle partie", command=nouvelle_partie) # button pour redémarrer une nouvelle partie
 btn_reset.pack(pady=10)
 
 fenetre.bind("<Key>", gestion_touche)
